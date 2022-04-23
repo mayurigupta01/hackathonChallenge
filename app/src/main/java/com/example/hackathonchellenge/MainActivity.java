@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.Locale;
 
 import android.content.Intent;
 import android.view.View;
@@ -103,31 +104,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     continue;
                 }
                 String[] str = line.split(",", 16);
-
-                System.out.println(Arrays.toString(str));
-                String year = str[0].toString();
-                String PerAnnualGDPGrowthIndia = str[1].toString();
-                String PerAnnualGDPGrowthChina = str[2].toString();
-                String PerAnnualGDPGrowthUSA = str[3].toString();
-                String DollarGDPGrowthIndia = str[4].toString();
-                String  DollarGDPGrowthChina = str[5].toString();
-                String  DollarGDPGrowthUSA = str[6].toString();
-                String  CurrentAccountBalanceChina = str[7].toString();
-                String  CurrentAccountBalanceIndia = str[8].toString();
-                String  CurrentAccountBalanceUSA = str[9].toString();
-                String  FDIPercentGDPChina = str[10].toString();
-                String  FDIPercentGDPIndia = str[11].toString();
-                String  FDIPercentGDPUSA = str[12].toString();
-                String  FDIOutflowDollarBOPChina = str[13].toString();
-                String  FDIOutflowDollarBOPIndia = str[14].toString();
-                String  FDIOutflowDollarBOPUSA = str[15].toString();
-                sqlhelper.addCSVRowtoDB(year, PerAnnualGDPGrowthIndia, PerAnnualGDPGrowthChina, PerAnnualGDPGrowthUSA,
-                        DollarGDPGrowthIndia, DollarGDPGrowthChina, DollarGDPGrowthUSA, CurrentAccountBalanceChina,
-                        CurrentAccountBalanceIndia, CurrentAccountBalanceUSA, FDIPercentGDPChina, FDIPercentGDPIndia,
-                        FDIPercentGDPUSA, FDIOutflowDollarBOPChina, FDIOutflowDollarBOPIndia, FDIOutflowDollarBOPUSA);
-
-
-
+                sqlhelper.addCSVRowtoDB(str);
             }
         }
         catch (Exception e){
@@ -136,5 +113,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
 
     }
+
 
 }
