@@ -3,20 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Martin Duong/Desktop/hackathonChallenge/app/src/main/res/drawable/ic_baseline_agriculture_75_select.xml" value="0.3145" />
-        <entry key="..\:/Users/Martin Duong/Desktop/hackathonChallenge/app/src/main/res/drawable/ic_baseline_agriculture_75_unselect.xml" value="0.3145" />
-        <entry key="..\:/Users/Martin Duong/Desktop/hackathonChallenge/app/src/main/res/layout/activity_agriculture.xml" value="0.31145833333333334" />
-        <entry key="..\:/Users/Martin Duong/Desktop/hackathonChallenge/app/src/main/res/layout/activity_macroeconomic.xml" value="0.31145833333333334" />
-        <entry key="..\:/Users/Martin Duong/Desktop/hackathonChallenge/app/src/main/res/layout/activity_main.xml" value="0.253125" />
-        <entry key="..\:/Users/Martin Duong/Desktop/hackathonChallenge/app/src/main/res/layout/activity_trade.xml" value="0.31145833333333334" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.23182678222656253" />
+        <entry key="..\:/hackathonChallenge/app/src/main/res/layout/activity_agriculture.xml" value="0.27447916666666666" />
+        <entry key="..\:/hackathonChallenge/app/src/main/res/layout/activity_macroeconomic.xml" value="0.27447916666666666" />
+        <entry key="..\:/hackathonChallenge/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
+        <entry key="..\:/hackathonChallenge/app/src/main/res/layout/activity_trade.xml" value="0.27447916666666666" />
+        <entry key="..\:/hackathonChallenge/app/src/main/res/layout/agriculture_checkbox.xml" value="0.27447916666666666" />
+        <entry key="..\:/hackathonChallenge/app/src/main/res/layout/macro_economy_chart.xml" value="0.27447916666666666" />
+        <entry key="..\:/hackathonChallenge/app/src/main/res/layout/macroeconomy_checkbox.xml" value="0.27447916666666666" />
+        <entry key="..\:/hackathonChallenge/app/src/main/res/layout/trade_checkbox.xml" value="0.27447916666666666" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/build/classes" />
-  </component>
-  <component name="ProjectType">
-    <option name="id" value="Android" />
-  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>
