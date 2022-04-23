@@ -16,6 +16,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HackathonChellenge">
         <activity
+            android:name=".tradeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".agricultureActivity"
+            android:exported="false" />
+        <activity
+            android:name=".macroeconomicActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
