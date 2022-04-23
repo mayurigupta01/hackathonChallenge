@@ -80,7 +80,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Trade"
+        android:text="MacroEconomy (USD)"
         android:fontWeight="400"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -91,24 +91,24 @@
         app:layout_constraintVertical_bias="0.266" />
 
     <CheckBox
-        android:id="@+id/checkbox_Reserve"
+        android:id="@+id/checkbox_GDP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="ReserveClicked"
-        android:text="Reserve"
+        android:onClick="GDP_Clicked"
+        android:text="GDP"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.262"
+        app:layout_constraintHorizontal_bias="0.201"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.355" />
+        app:layout_constraintVertical_bias="0.36" />
 
     <CheckBox
-        android:id="@+id/checkbox_GNI"
+        android:id="@+id/checkbox_FDIInflowUSD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="GNIClicked"
-        android:text="GNI"
+        android:onClick="FDIInflowUSDClicked"
+        android:text="FDI Inflow USD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.243"
@@ -117,33 +117,33 @@
         app:layout_constraintVertical_bias="0.453" />
 
     <CheckBox
-        android:id="@+id/checkbox_Total_Debt"
+        android:id="@+id/checkbox_FDIOutflowUSD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="TotalDebtClicked"
-        android:text="Total Debt"
+        android:onClick="FDIOutflowUSDClicked"
+        android:text="FDI Out flow USD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.273"
+        app:layout_constraintHorizontal_bias="0.261"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.549" />
+        app:layout_constraintVertical_bias="0.544" />
 
     <CheckBox
-        android:id="@+id/checkbox_GNICurrentUS"
+        android:id="@+id/checkbox_ImportExportFlow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="GNICurrentUSClicked"
-        android:text="GNI Current US"
+        android:onClick="ImportExportFlowClicked"
+        android:text="Import/Export flow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.301"
+        app:layout_constraintHorizontal_bias="0.268"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.644" />
+        app:layout_constraintVertical_bias="0.635" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Show"

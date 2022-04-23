@@ -5,22 +5,76 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="295dp"
-            android:layout_height="58dp"
-            android:text="Macroeconomic Research Food security Time Series DashBoard"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/purple_700"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.036" />
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="295dp"
+        android:layout_height="58dp"
+        android:text="Macroeconomic Research Food Security Time Series Dashboard"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.862"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.044" />
+
+
+    <Spinner
+        android:id="@+id/countrySpinner"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/macroeconomicButton"
+        android:onClick="macroeconomicActivity"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_baseline_show_chart_75_unselect" />
+
+    <ImageButton
+        android:id="@+id/agricultureButton"
+        android:onClick="agricultureActivity"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="168dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_baseline_agriculture_75_unselect" />
+
+    <ImageButton
+        android:id="@+id/tradeButton"
+        android:onClick="tradeActivity"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_baseline_attach_money_75_unselect" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_food_bank_75" />
 
         <TextView
             android:id="@+id/textView"
