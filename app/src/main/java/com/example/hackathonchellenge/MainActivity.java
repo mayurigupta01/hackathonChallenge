@@ -2,23 +2,48 @@ package com.example.hackathonchellenge;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
+
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.Locale;
+
+import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     Spinner spinner;
     String[] countries = {"Select a Country", "China", "India", "USA"};
 
+    private SQLhelper sqlhelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        sqlhelper = new SQLhelper(MainActivity.this);
+        SQLiteDatabase db = new SQLhelper(this).getWritableDatabase();
+        InputStream csvFile = getResources().openRawResource(R.raw.macroeconomic1);
+        Log.e("LoadData", "Loading Macroeconomics Data into SqlLite DB");
+        try {
+            readDataFromCSV(csvFile);
+            Log.e("Import", "Successfully Updated Database.");
+        } catch (Exception e) {
+            Log.e("Import", "Error in Uploading");
+            e.printStackTrace();
 
+        }
         spinner = (Spinner)findViewById(R.id.countrySpinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this,
                 android.R.layout.simple_spinner_item,countries);
@@ -66,4 +91,28 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Intent intent = new Intent(MainActivity.this, tradeActivity.class);
         startActivity(intent);
     }
+
+
+    private void readDataFromCSV(InputStream csvFile) throws IOException {
+        BufferedReader buffer = new BufferedReader(new InputStreamReader(csvFile));
+        String line = "";
+        try {
+            int k = 0;
+            while ((line = buffer.readLine()) != null) {
+                if(k==0){
+                    k++;
+                    continue;
+                }
+                String[] str = line.split(",", 16);
+                sqlhelper.addCSVRowtoDB(str);
+            }
+        }
+        catch (Exception e){
+            Log.e("add data", "No able to add Data");
+            e.printStackTrace();
+        }
+
+    }
+
+
 }
