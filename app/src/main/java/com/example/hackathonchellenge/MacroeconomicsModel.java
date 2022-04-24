@@ -27,8 +27,7 @@ public class MacroeconomicsModel {
                                String PerAnnualGDPGrowthUSA,String DollarGDPGrowthIndia,String DollarGDPGrowthChina,
                                String DollarGDPGrowthUSA, String CurrentAccountBalanceChina,String CurrentAccountBalanceIndia,
                                String CurrentAccountBalanceUSA, String FDIPercentGDPChina,String FDIPercentGDPIndia,String FDIPercentGDPUSA,
-                               String FDIOutflowDollarBOPChina,String FDIOutflowDollarBOPIndia,String FDIOutflowDollarBOPUSA,
-                               String FDINetDollarBOPChina , String FDINetDollarBOPIndia , String FDINetDollarBOPUSA) {
+                               String FDIOutflowDollarBOPChina,String FDIOutflowDollarBOPIndia,String FDIOutflowDollarBOPUSA) {
         this.year = year;
         this.PerAnnualGDPGrowthIndia = PerAnnualGDPGrowthIndia;
         this.PerAnnualGDPGrowthChina = PerAnnualGDPGrowthChina;
@@ -45,9 +44,7 @@ public class MacroeconomicsModel {
         this.FDIOutflowDollarBOPChina = FDIOutflowDollarBOPChina;
         this.FDIOutflowDollarBOPIndia = FDIOutflowDollarBOPIndia;
         this.FDIOutflowDollarBOPUSA = FDIOutflowDollarBOPUSA ;
-        this.FDINetDollarBOPChina = FDINetDollarBOPChina;
-        this.FDINetDollarBOPIndia = FDINetDollarBOPIndia;
-        this.FDINetDollarBOPUSA = FDINetDollarBOPUSA;
+
     }
 
     public String getYear() {
@@ -114,15 +111,4 @@ public class MacroeconomicsModel {
         return FDIOutflowDollarBOPUSA;
     }
 
-    public String getFDINetDollarBOPChina() {
-        return FDINetDollarBOPChina;
-    }
 
-    public String getFDINetDollarBOPIndia() {
-        return FDINetDollarBOPIndia;
-    }
-
-    public String getFDINetDollarBOPUSA() {
-        return FDINetDollarBOPUSA;
-    }
-}
