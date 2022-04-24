@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 
 import java.io.BufferedReader;
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             e.printStackTrace();
 
         }
-         modelList = ReaderController.getMacroEconomicsData(sqlhelper);
+        modelList = ReaderController.getMacroEconomicsData(sqlhelper);
 
         spinner = (Spinner)findViewById(R.id.countrySpinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this,
@@ -85,6 +86,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     public void macroeconomicActivity(View view) {
         Intent intent = new Intent(MainActivity.this, macroeconomicActivity.class);
+        intent.putExtra("modelList", (Parcelable) modelList);
         startActivity(intent);
     }
 
