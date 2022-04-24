@@ -2,7 +2,9 @@ package com.example.hackathonchellenge;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CheckBox;
 
 import com.anychart.AnyChart;
@@ -33,16 +35,10 @@ public class macroeconomicActivity extends AppCompatActivity {
         CheckBox checkbox_ImportExportFlow = (CheckBox) findViewById(R.id.checkbox_ImportExportFlow);
         Boolean checkbox_ImportExportFlowUSState = checkbox_ImportExportFlow.isChecked();
 
-//        Pie pie = AnyChart.pie();
-//
-//        List<DataEntry> data = new ArrayList<>();
-//        data.add(new ValueDataEntry("John", 10000));
-//        data.add(new ValueDataEntry("Jake", 12000));
-//        data.add(new ValueDataEntry("Peter", 18000));
-//
-//        pie.data(data);
-//
-//        AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
-//        anyChartView.setChart(pie);
+    }
+
+    public void macroeconomicActivity(View view) {
+        Intent intent = new Intent(macroeconomicActivity.this, MacroeconomyChart.class);
+        startActivity(intent);
     }
 }
