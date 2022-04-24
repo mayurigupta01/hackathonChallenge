@@ -121,6 +121,7 @@ public class SQLhelper extends SQLiteOpenHelper {
     }
     public ArrayList<MacroeconomicsModel> readMacroeconomicsData(){
         SQLiteDatabase db = this.getReadableDatabase();
+        System.out.println(db);
         Cursor cursorCourses = db.rawQuery("SELECT * FROM " + TABLE_NAME
                 , null);
         // on below line we are creating a new array list.

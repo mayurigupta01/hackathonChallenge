@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 
 import android.content.Intent;
@@ -43,6 +44,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             Log.e("Import", "Error in Uploading");
             e.printStackTrace();
 
+        }
+        List<MacroeconomicsModel> modelList = ReaderController.getMacroEconomicsData(sqlhelper);
+        for(MacroeconomicsModel m : modelList){
+            System.out.println(m.getYear());
         }
         spinner = (Spinner)findViewById(R.id.countrySpinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this,
@@ -104,7 +109,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     continue;
                 }
                 String[] str = line.split(",", 16);
-                System.out.println(Arrays.toString(str));
                 sqlhelper.addCSVRowtoDB(str);
             }
         }

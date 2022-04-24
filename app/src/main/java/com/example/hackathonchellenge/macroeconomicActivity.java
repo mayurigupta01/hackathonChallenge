@@ -17,7 +17,7 @@ import java.util.List;
 public class macroeconomicActivity extends AppCompatActivity {
 
     public  SQLhelper sqlhelper;
-    ArrayList<MacroeconomicsModel> macroEconomics;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +25,6 @@ public class macroeconomicActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_macroeconomic);
 
-        macroEconomics = sqlhelper.readMacroeconomicsData();
-        System.out.println(macroEconomics.toString());
         Pie pie = AnyChart.pie();
 
         List<DataEntry> data = new ArrayList<>();
@@ -35,7 +33,6 @@ public class macroeconomicActivity extends AppCompatActivity {
         data.add(new ValueDataEntry("Peter", 18000));
         pie.data(data);
 
-        showIndiaData();
 
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
         anyChartView.setChart(pie);
@@ -70,20 +67,4 @@ public class macroeconomicActivity extends AppCompatActivity {
 
 
 
-    public void showIndiaData() {
-        for (int i = 0; i < macroEconomics.size(); i++) {
-            System.out.println(macroEconomics.get(i).getYear());
-            System.out.println(macroEconomics.get(i).getCurrentAccountBalanceIndia());
-
-        }
-    }
-
-    public void showUSAData(){
-
-    }
-
-    public void showChinaData(){
-
-
-    }
 }
