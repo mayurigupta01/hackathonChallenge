@@ -39,10 +39,14 @@ public class MainActivity extends AppCompatActivity {
         sqlhelper = new SQLhelper(MainActivity.this);
         SQLiteDatabase db = new SQLhelper(this).getWritableDatabase();
         InputStream csvFile = getResources().openRawResource(R.raw.macroeconomic);
+        InputStream agriCsvFile = getResources().openRawResource(R.raw.agriculture);
+        InputStream tradeCsvFile = getResources().openRawResource(R.raw.trade);
         Log.e("LoadData", "Loading Macroeconomics Data into SqlLite DB");
         try {
             readDataFromCSV(csvFile);
-            Log.e("Import", "Successfully Updated Database.");
+            readDataFromCSVAgri(agriCsvFile);
+            readDataFromCSVTrade(tradeCsvFile);
+            Log.e("Import", "Successfully Updated Databases.");
         } catch (Exception e) {
             Log.e("Import", "Error in Uploading");
             e.printStackTrace();
@@ -90,6 +94,50 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
+    private void readDataFromCSVAgri(InputStream agriCsvFile) throws IOException {
+        BufferedReader buffer = new BufferedReader(new InputStreamReader(agriCsvFile));
+        String line = "";
+        try {
+            int k = 0;
+            while ((line = buffer.readLine()) != null) {
+                if(k==0){
+                    k++;
+                    continue;
+                }
+                String[] str = line.split(",", 16);
+                sqlhelper.addAgriDataoDB(str);
+            }
+        }
+        catch (Exception e){
+            Log.e("add data", "No able to add Data");
+            e.printStackTrace();
+        }
+
+    }
+
+
+    private void readDataFromCSVTrade(InputStream tradeFile) throws IOException {
+        BufferedReader buffer = new BufferedReader(new InputStreamReader(tradeFile));
+        String line = "";
+        try {
+            int k = 0;
+            while ((line = buffer.readLine()) != null) {
+                if(k==0){
+                    k++;
+                    continue;
+                }
+                String[] str = line.split(",", 13);
+                sqlhelper.addTradeDataToDB(str);
+            }
+        }
+        catch (Exception e){
+            Log.e("add data", "No able to add Data");
+            e.printStackTrace();
+        }
+
+    }
 
 
 }
