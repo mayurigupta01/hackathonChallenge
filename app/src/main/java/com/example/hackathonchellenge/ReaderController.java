@@ -16,4 +16,15 @@ public class ReaderController {
          return getMacroData;
     }
 
+    public static List<AgricultureModel> getAgricultureData(SQLhelper sqlHelper) {
+        List<AgricultureModel> getAgricultureData = null;
+        try{
+            getAgricultureData = sqlHelper.readAgricultureData();
+        }
+        catch (Exception e) {
+            //log the exception
+        }
+        return getAgricultureData;
+    }
+
 }

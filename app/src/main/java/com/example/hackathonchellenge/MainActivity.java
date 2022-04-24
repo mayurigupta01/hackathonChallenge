@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     private SQLhelper sqlhelper;
     static List<MacroeconomicsModel> modelList;
+    static List<AgricultureModel> agriList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
         modelList = ReaderController.getMacroEconomicsData(sqlhelper);
+        agriList = ReaderController.getAgricultureData(sqlhelper);
     }
 
     public void macroeconomicActivity(View view) {
