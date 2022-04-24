@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     String[] countries = {"Select a Country", "China", "India", "USA"};
 
     private SQLhelper sqlhelper;
-    List<MacroeconomicsModel> modelList;
+    static List<MacroeconomicsModel> modelList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +58,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+
+//        List<Double> IndiaGDP =  showIndiaGDPData();
+//        System.out.println(IndiaGDP);
     }
 
     @Override
@@ -86,7 +89,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     public void macroeconomicActivity(View view) {
         Intent intent = new Intent(MainActivity.this, macroeconomicActivity.class);
-        intent.putExtra("modelList", (Parcelable) modelList);
         startActivity(intent);
     }
 
@@ -122,14 +124,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
-    public  List<Double> showIndiaGDPData(){
-       List<Double> gdpGrowthDataIndia = new ArrayList<>();
-        for(int i = 0 ; i<modelList.size() ; i++){
-            Double value = Double.parseDouble(modelList.get(i).PerAnnualGDPGrowthIndia);
-            gdpGrowthDataIndia.add(value);
-      }
-        return gdpGrowthDataIndia;
-    }
+//    public List<Double> showIndiaGDPData(){
+//        List<Double> gdpGrowthDataIndia = new ArrayList<>();
+//        for(int i = 0 ; i<modelList.size() ; i++){
+//            Double value = Double.parseDouble(modelList.get(i).PerAnnualGDPGrowthIndia);
+//            gdpGrowthDataIndia.add(value);
+//      }
+//        return gdpGrowthDataIndia;
+//    }
 
 
     public List<Double> showChinaGDPData(){
