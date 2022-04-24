@@ -40,19 +40,19 @@ public class macroeconomicActivity extends AppCompatActivity {
         Boolean checkbox_ImportExportFlowUSState = checkbox_ImportExportFlow.isChecked();
 
 //        showIndiaGDPData();
-                List<Double> IndiaGDP =  showIndiaGDPData();
-                System.out.println(IndiaGDP);
+//                List<Double> IndiaGDP =  showIndiaGDPData();
+//                System.out.println(IndiaGDP);
     }
-    private List<MacroeconomicsModel> list_my = MainActivity.modelList;
-
-    public List<Double> showIndiaGDPData(){
-        List<Double> gdpGrowthDataIndia = new ArrayList<>();
-        for(int i = 0 ; i<list_my.size() ; i++){
-            Double value = Double.parseDouble(list_my.get(i).PerAnnualGDPGrowthIndia);
-            gdpGrowthDataIndia.add(value);
-        }
-        return gdpGrowthDataIndia;
-    }
+//    private List<MacroeconomicsModel> list_my = MainActivity.modelList;
+//
+//    public List<Double> showIndiaGDPData(){
+//        List<Double> gdpGrowthDataIndia = new ArrayList<>();
+//        for(int i = 0 ; i<list_my.size() ; i++){
+//            Double value = Double.parseDouble(list_my.get(i).PerAnnualGDPGrowthIndia);
+//            gdpGrowthDataIndia.add(value);
+//        }
+//        return gdpGrowthDataIndia;
+//    }
 
 
 
