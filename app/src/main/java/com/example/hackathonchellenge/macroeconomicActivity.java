@@ -3,6 +3,7 @@ package com.example.hackathonchellenge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.CheckBox;
 
 import com.anychart.AnyChart;
 import com.anychart.AnyChartView;
@@ -18,18 +19,30 @@ public class macroeconomicActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_macroeconomic);
+        setContentView(R.layout.macroeconomy_checkbox);
 
-        Pie pie = AnyChart.pie();
+        CheckBox checkbox_GDP = (CheckBox) findViewById(R.id.checkbox_GDP);
+        Boolean checkbox_GDPState = checkbox_GDP.isChecked();//initiate a check box
 
-        List<DataEntry> data = new ArrayList<>();
-        data.add(new ValueDataEntry("John", 10000));
-        data.add(new ValueDataEntry("Jake", 12000));
-        data.add(new ValueDataEntry("Peter", 18000));
+        CheckBox checkbox_FDIInflowUSD = (CheckBox) findViewById(R.id.checkbox_FDIInflowUSD);
+        Boolean checkbox_FDIInflowUSDState = checkbox_FDIInflowUSD.isChecked();//initiate a check box
 
-        pie.data(data);
+        CheckBox checkbox_FDIOutflowUSD = (CheckBox) findViewById(R.id.checkbox_FDIOutflowUSD);
+        Boolean checkbox_FDIOutflowUSDState = checkbox_FDIOutflowUSD.isChecked();//initiate a check box
 
-        AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
-        anyChartView.setChart(pie);
+        CheckBox checkbox_ImportExportFlow = (CheckBox) findViewById(R.id.checkbox_ImportExportFlow);
+        Boolean checkbox_ImportExportFlowUSState = checkbox_ImportExportFlow.isChecked();
+
+//        Pie pie = AnyChart.pie();
+//
+//        List<DataEntry> data = new ArrayList<>();
+//        data.add(new ValueDataEntry("John", 10000));
+//        data.add(new ValueDataEntry("Jake", 12000));
+//        data.add(new ValueDataEntry("Peter", 18000));
+//
+//        pie.data(data);
+//
+//        AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
+//        anyChartView.setChart(pie);
     }
 }
