@@ -251,6 +251,43 @@ public class MacroeconomyChart extends AppCompatActivity {
         return FDIOutflowIndia;
     }
 
+
+
+
+
+    public List<Double> FDIImportExportIndiaGDPData() {
+        List<Double> FDIOutflowIndia = new ArrayList<>();
+        for (int i = 0; i < list_my.size(); i++) {
+            if (list_my.get(i) != null) {
+                Double value = Double.parseDouble(list_my.get(i).CurrentAccountBalanceIndia);
+                FDIOutflowIndia.add(value);
+            }
+        }
+        return FDIOutflowIndia;
+    }
+
+    public List<Double> FDIImportExportChinaGDPData() {
+        List<Double> FDIOutflowIndia = new ArrayList<>();
+        for (int i = 0; i < list_my.size(); i++) {
+            if (list_my.get(i) != null) {
+                Double value = Double.parseDouble(list_my.get(i).CurrentAccountBalanceChina);
+                FDIOutflowIndia.add(value);
+            }
+        }
+        return FDIOutflowIndia;
+    }
+
+    public List<Double> FDIImportExportUSAGDPData() {
+        List<Double> FDIOutflowIndia = new ArrayList<>();
+        for (int i = 0; i < list_my.size(); i++) {
+            if (list_my.get(i) != null) {
+                Double value = Double.parseDouble(list_my.get(i).CurrentAccountBalanceUSA);
+                FDIOutflowIndia.add(value);
+            }
+        }
+        return FDIOutflowIndia;
+    }
+
     private class CustomDataEntry extends ValueDataEntry {
 
 //        CustomDataEntry(String x, Number value, Number value2, Number value3) {

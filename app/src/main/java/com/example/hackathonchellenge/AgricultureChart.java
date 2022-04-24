@@ -112,4 +112,40 @@ public class AgricultureChart extends AppCompatActivity {
         }
         return FDIOutflowIndia;
     }
+
+
+    public List<Double> fertilizerProductionIndia() {
+        List<Double> FDIOutflowIndia = new ArrayList<>();
+        for (int i = 0; i < list_my.size(); i++) {
+            if (list_my.get(i) != null) {
+                Double value = Double.parseDouble(list_my.get(i).FertilizerPerConsumptionIndia);
+                FDIOutflowIndia.add(value);
+            }
+        }
+        return FDIOutflowIndia;
     }
+
+    public List<Double> fertilizerProductionChina() {
+        List<Double> FDIOutflowIndia = new ArrayList<>();
+        for (int i = 0; i < list_my.size(); i++) {
+            if (list_my.get(i) != null) {
+                Double value = Double.parseDouble(list_my.get(i).FertilizerPerConsumptionChina);
+                FDIOutflowIndia.add(value);
+            }
+        }
+        return FDIOutflowIndia;
+    }
+
+    public List<Double> fertilizerProductionUSA() {
+        List<Double> FDIOutflowIndia = new ArrayList<>();
+        for (int i = 0; i < list_my.size(); i++) {
+            if (list_my.get(i) != null) {
+                Double value = Double.parseDouble(list_my.get(i).FertilizerPerConsumptionUSA);
+                FDIOutflowIndia.add(value);
+            }
+        }
+        return FDIOutflowIndia;
+    }
+
+}
+
