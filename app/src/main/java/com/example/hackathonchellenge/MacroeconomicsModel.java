@@ -23,11 +23,11 @@ public class MacroeconomicsModel {
     public String FDINetDollarBOPUSA;
 
 
-    public MacroeconomicsModel(String year , String PerAnnualGDPGrowthIndia,String PerAnnualGDPGrowthChina,
-                               String PerAnnualGDPGrowthUSA,String DollarGDPGrowthIndia,String DollarGDPGrowthChina,
-                               String DollarGDPGrowthUSA, String CurrentAccountBalanceChina,String CurrentAccountBalanceIndia,
-                               String CurrentAccountBalanceUSA, String FDIPercentGDPChina,String FDIPercentGDPIndia,String FDIPercentGDPUSA,
-                               String FDIOutflowDollarBOPChina,String FDIOutflowDollarBOPIndia,String FDIOutflowDollarBOPUSA) {
+    public MacroeconomicsModel(String year, String PerAnnualGDPGrowthIndia, String PerAnnualGDPGrowthChina,
+                               String PerAnnualGDPGrowthUSA, String DollarGDPGrowthIndia, String DollarGDPGrowthChina,
+                               String DollarGDPGrowthUSA, String CurrentAccountBalanceChina, String CurrentAccountBalanceIndia,
+                               String CurrentAccountBalanceUSA, String FDIPercentGDPChina, String FDIPercentGDPIndia, String FDIPercentGDPUSA,
+                               String FDIOutflowDollarBOPChina, String FDIOutflowDollarBOPIndia, String FDIOutflowDollarBOPUSA) {
         this.year = year;
         this.PerAnnualGDPGrowthIndia = PerAnnualGDPGrowthIndia;
         this.PerAnnualGDPGrowthChina = PerAnnualGDPGrowthChina;
@@ -43,7 +43,7 @@ public class MacroeconomicsModel {
         this.FDIPercentGDPUSA = FDIPercentGDPUSA;
         this.FDIOutflowDollarBOPChina = FDIOutflowDollarBOPChina;
         this.FDIOutflowDollarBOPIndia = FDIOutflowDollarBOPIndia;
-        this.FDIOutflowDollarBOPUSA = FDIOutflowDollarBOPUSA ;
+        this.FDIOutflowDollarBOPUSA = FDIOutflowDollarBOPUSA;
 
     }
 
@@ -55,11 +55,11 @@ public class MacroeconomicsModel {
         return PerAnnualGDPGrowthIndia;
     }
 
-    public String getPerAnnualGDPGrowthChina(){
+    public String getPerAnnualGDPGrowthChina() {
         return PerAnnualGDPGrowthChina;
     }
 
-    public String getPerAnnualGDPGrowthUSA(){
+    public String getPerAnnualGDPGrowthUSA() {
         return PerAnnualGDPGrowthUSA;
     }
 
@@ -111,4 +111,5 @@ public class MacroeconomicsModel {
         return FDIOutflowDollarBOPUSA;
     }
 
+}
 

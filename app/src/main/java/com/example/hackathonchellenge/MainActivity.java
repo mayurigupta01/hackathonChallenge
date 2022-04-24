@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Locale;
 
 import android.content.Intent;
+import android.util.MonthDisplayHelper;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -48,6 +49,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         }
          modelList = ReaderController.getMacroEconomicsData(sqlhelper);
+        for(MacroeconomicsModel m : modelList){
+            System.out.println(m.year);
+            System.out.println(m.getYear());
+
+        }
 
         spinner = (Spinner)findViewById(R.id.countrySpinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this,
