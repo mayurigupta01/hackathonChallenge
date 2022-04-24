@@ -59,7 +59,7 @@
             android:layout_marginBottom="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_baseline_attach_money_75_unselect" />
+            app:srcCompat="@drawable/ic_baseline_attach_money_75_select" />
 
         <ImageView
             android:id="@+id/imageView"

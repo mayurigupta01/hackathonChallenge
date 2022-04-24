@@ -42,7 +42,7 @@
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_baseline_show_chart_75_unselect" />
+        app:srcCompat="@drawable/ic_baseline_show_chart_75_select" />
 
     <ImageButton
         android:id="@+id/agricultureButton"
@@ -146,7 +146,7 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="macroeconomicActivity"
+        android:onClick="macroeconomicChart"
         android:text="Show"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

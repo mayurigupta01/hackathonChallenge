@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Martin Duong/Desktop/hackathonChallenge/app/src/main/res/layout/activity_agriculture_chart.xml" value="0.2604166666666667" />
+        <entry key="..\:/Users/Martin Duong/Desktop/hackathonChallenge/app/src/main/res/layout/activity_main.xml" value="0.1644021739130435" />
+        <entry key="..\:/Users/Martin Duong/Desktop/hackathonChallenge/app/src/main/res/layout/activity_tradechart.xml" value="0.2604166666666667" />
+        <entry key="..\:/Users/Martin Duong/Desktop/hackathonChallenge/app/src/main/res/layout/agriculture_checkbox.xml" value="0.2604166666666667" />
+        <entry key="..\:/Users/Martin Duong/Desktop/hackathonChallenge/app/src/main/res/layout/macro_economy_chart.xml" value="0.1" />
+        <entry key="..\:/Users/Martin Duong/Desktop/hackathonChallenge/app/src/main/res/layout/macroeconomy_checkbox.xml" value="0.2604166666666667" />
+        <entry key="..\:/Users/Martin Duong/Desktop/hackathonChallenge/app/src/main/res/layout/trade_checkbox.xml" value="0.2604166666666667" />
         <entry key="..\:/hackathonChallenge/app/src/main/res/layout/activity_agriculture.xml" value="0.27447916666666666" />
         <entry key="..\:/hackathonChallenge/app/src/main/res/layout/activity_agriculture_chart.xml" value="0.27447916666666666" />
         <entry key="..\:/hackathonChallenge/app/src/main/res/layout/activity_macroeconomic.xml" value="0.27447916666666666" />
@@ -11,8 +18,8 @@
         <entry key="..\:/hackathonChallenge/app/src/main/res/layout/activity_tradechart.xml" value="0.2604166666666667" />
         <entry key="..\:/hackathonChallenge/app/src/main/res/layout/agriculture_checkbox.xml" value="0.27447916666666666" />
         <entry key="..\:/hackathonChallenge/app/src/main/res/layout/macro_economy_chart.xml" value="0.27447916666666666" />
-        <entry key="..\:/hackathonChallenge/app/src/main/res/layout/macroeconomy_checkbox.xml" value="0.1" />
-        <entry key="..\:/hackathonChallenge/app/src/main/res/layout/trade_checkbox.xml" value="0.1" />
+        <entry key="..\:/hackathonChallenge/app/src/main/res/layout/macroeconomy_checkbox.xml" value="0.27447916666666666" />
+        <entry key="..\:/hackathonChallenge/app/src/main/res/layout/trade_checkbox.xml" value="0.27447916666666666" />
       </map>
     </option>
   </component>

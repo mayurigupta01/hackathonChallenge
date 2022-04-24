@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HackathonChellenge">
         <activity
+            android:name=".MacroeconomyChart"
+            android:exported="false" />
+        <activity
             android:name=".AgricultureChart"
             android:exported="false" />
         <activity
