@@ -104,9 +104,9 @@ public class SQLhelper extends SQLiteOpenHelper {
         values.put(FDI_OUTFLOW_DOLLAR_BOP_CHINA_COL, addNullValues(inValues[13]));
         values.put(FDI_OUTFLOW_DOLLAR_BOP_INDIA_COL, addNullValues(inValues[14]));
         values.put(FDI_OUTFLOW_DOLLAR_BOP_USA_COL, addNullValues(inValues[15]));
-        values.put(FDI_NET_DOLLAR_BOP_CHINA_COL, addNullValues(inValues[15]));
-        values.put(FDI_NET_DOLLAR_BOP_INDIA_COL, addNullValues(inValues[15]));
-        values.put(FDI_NET_DOLLAR_BOP_USA_COL, addNullValues(inValues[15]));
+        values.put(FDI_NET_DOLLAR_BOP_CHINA_COL, addNullValues(inValues[16]));
+        values.put(FDI_NET_DOLLAR_BOP_INDIA_COL, addNullValues(inValues[17]));
+        values.put(FDI_NET_DOLLAR_BOP_USA_COL, addNullValues(inValues[18]));
         // after adding all values we are passing content values to our table.
         db.insert(TABLE_NAME, null, values);
 
