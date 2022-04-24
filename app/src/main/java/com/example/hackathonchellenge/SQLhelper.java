@@ -128,6 +128,7 @@ public class SQLhelper extends SQLiteOpenHelper {
                 + debtIndia + " TEXT,"
                 + debtUSA + " TEXT,"
                 + GNIChina + " TEXT,"
+                + GNIIndia + "TEXT,"
                 + GNIUSA + " TEXT,"
                 + CurrentGNIChina + " TEXT,"
                 + CurrentGNIIndia + " TEXT,"
