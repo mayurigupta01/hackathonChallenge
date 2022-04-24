@@ -2,7 +2,9 @@ package com.example.hackathonchellenge;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CheckBox;
 
 import com.anychart.AnyChart;
@@ -52,6 +54,12 @@ public class macroeconomicActivity extends AppCompatActivity {
 
         CheckBox checkbox_ImportExportFlow = (CheckBox) findViewById(R.id.checkbox_ImportExportFlow);
         Boolean checkbox_ImportExportFlowUSState = checkbox_ImportExportFlow.isChecked();
+
+    }
+
+    public void macroeconomicActivity(View view) {
+        Intent intent = new Intent(macroeconomicActivity.this, MacroeconomyChart.class);
+        startActivity(intent);
 
 //        Pie pie = AnyChart.pie();
 //
@@ -125,6 +133,7 @@ public class macroeconomicActivity extends AppCompatActivity {
             }
         }
         return FDIInflowUSA;
+
 
     }
 
