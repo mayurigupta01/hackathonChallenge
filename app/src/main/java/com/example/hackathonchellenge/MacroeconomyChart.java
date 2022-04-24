@@ -40,6 +40,7 @@ public class MacroeconomyChart extends AppCompatActivity {
         Boolean checkbox_ImportExportFlow = getIntent().getBooleanExtra("checkbox_ImportExportFlow", false);
 
         List<Double> data = new ArrayList<Double>();
+        List<Double> data2 = new ArrayList<Double>();
         String countrySelection;
 
         AnyChartView anyChartView = findViewById(R.id.any_chart_view);
@@ -63,57 +64,91 @@ public class MacroeconomyChart extends AppCompatActivity {
 //        cartesian.yAxis(0).title("Number of Bottles Sold (thousands)");
         cartesian.xAxis(0).labels().padding(5d, 5d, 5d, 5d);
 
-//        switch(spinnerSelection) {
-//            case 1: countrySelection = "China";
-//                    break;
-//            case 2: countrySelection = "India";
-//                    break;
-//            case 3: countrySelection = "USA";
-//                    break;
-//            default: countrySelection = "0";
-//                    break;
-//        }
-//
-//        if(checkbox_GDP == true) {
-//            try {
-//                Method m = MacroeconomyChart.class.getMethod("show" + countrySelection + "GDPData");
-//                data = m.invoke(MacroeconomyChart);
-//            } catch (NoSuchMethodException e) {
-//                e.printStackTrace();
+        // Uncomment for two charts
+//        if(spinnerSelection == 1) {
+//            if(checkbox_GDP == true) {
+//                data = showChinaGDPData();
 //            }
-//            //data = showChinaGDPData();
+//            if(checkbox_FDIInflowUSD == true) {
+//                data2 = FDIInflowChinaGDPData();
+//            }
 //        }
 
-        if(checkbox_GDP == true && spinnerSelection == 1) {
-            data = showChinaGDPData();
+        if(spinnerSelection == 1) {
+            if(checkbox_GDP == true) {
+                data = showChinaGDPData();
+            }
+            if(checkbox_FDIInflowUSD == true) {
+                data = FDIInflowChinaGDPData();
+            }
+            if(checkbox_FDIOutflowUSD == true) {
+                data = FDIOutflowChinaGDPData();
+            }
+            if(checkbox_ImportExportFlow == true) {
+                data = FDIImportExportChinaGDPData();
+            }
         }
-        if(checkbox_GDP == true && spinnerSelection == 2) {
-            data = showIndiaGDPData();
+
+        if(spinnerSelection == 2) {
+            if(checkbox_GDP == true) {
+                data = showIndiaGDPData();
+            }
+            if(checkbox_FDIInflowUSD == true) {
+                data = FDIInflowIndiaGDPData();
+            }
+            if(checkbox_FDIOutflowUSD == true) {
+                data = FDIOutflowIndiaGDPData();
+            }
+            if(checkbox_ImportExportFlow == true) {
+                data = FDIImportExportIndiaGDPData();
+            }
         }
-        if(checkbox_GDP == true && spinnerSelection == 3) {
-            data = showUSAGDPData();
+
+        if(spinnerSelection == 3) {
+            if(checkbox_GDP == true) {
+                data = showUSAGDPData();
+            }
+            if(checkbox_FDIInflowUSD == true) {
+                data = FDIInflowUSAGDPData();
+            }
+            if(checkbox_FDIOutflowUSD == true) {
+                data = FDIOutflowUSAGDPData();
+            }
+            if(checkbox_ImportExportFlow == true) {
+                data = FDIImportExportUSAGDPData();
+            }
         }
+
 
         if(data.isEmpty()) {
             System.out.println("No chart data!");
         } else {
             List<DataEntry> seriesData = new ArrayList<>();
+            List<DataEntry> seriesData2 = new ArrayList<>();
+
             int year = 1960;
             for (int i = 0; i < 61; i++) {
-                seriesData.add(new ValueDataEntry(Integer.toString(year), data.get(i)));
+                seriesData.add(new CustomDataEntry(Integer.toString(year), data.get(i)));
                 year++;
-                System.out.println(year);
-                System.out.println(data.get(i));
             }
+
+//            year = 1960;
+//            for (int i = 0; i < 61; i++) {
+//                seriesData2.add(new CustomDataEntry(Integer.toString(year), data2.get(i)));
+//                year++;
+//            }
 
             Set set = Set.instantiate();
             set.data(seriesData);
             Mapping series1Mapping = set.mapAs("{ x: 'x', value: 'value' }");
-            //        Mapping series2Mapping = set.mapAs("{ x: 'x', value: 'value2' }");
+//            Set set2 = Set.instantiate();
+//            set2.data(seriesData2);
+//            Mapping series2Mapping = set2.mapAs("{ x: 'x', value: 'value2' }");
+
             //        Mapping series3Mapping = set.mapAs("{ x: 'x', value: 'value3' }");
 
             Line series1 = cartesian.line(series1Mapping);
-            //        series1.name("Brandy");
+            // series1.name("Brandy");
             series1.hovered().markers().enabled(true);
             series1.hovered().markers()
                     .type(MarkerType.CIRCLE)
@@ -123,34 +158,34 @@ public class MacroeconomyChart extends AppCompatActivity {
                     .anchor(Anchor.LEFT_CENTER)
                     .offsetX(5d)
                     .offsetY(5d);
-            //
-            //        Line series2 = cartesian.line(series2Mapping);
-            //        series2.name("Whiskey");
-            //        series2.hovered().markers().enabled(true);
-            //        series2.hovered().markers()
-            //                .type(MarkerType.CIRCLE)
-            //                .size(4d);
-            //        series2.tooltip()
-            //                .position("right")
-            //                .anchor(Anchor.LEFT_CENTER)
-            //                .offsetX(5d)
-            //                .offsetY(5d);
-            //
-            //        Line series3 = cartesian.line(series3Mapping);
-            //        series3.name("Tequila");
-            //        series3.hovered().markers().enabled(true);
-            //        series3.hovered().markers()
-            //                .type(MarkerType.CIRCLE)
-            //                .size(4d);
-            //        series3.tooltip()
-            //                .position("right")
-            //                .anchor(Anchor.LEFT_CENTER)
-            //                .offsetX(5d)
-            //                .offsetY(5d);
-            //
-            //        cartesian.legend().enabled(true);
-            //        cartesian.legend().fontSize(13d);
-            //        cartesian.legend().padding(0d, 0d, 10d, 0d);
+
+//            Line series2 = cartesian.line(series2Mapping);
+//            // series2.name("Whiskey");
+//            series2.hovered().markers().enabled(true);
+//            series2.hovered().markers()
+//                    .type(MarkerType.CIRCLE)
+//                    .size(4d);
+//            series2.tooltip()
+//                    .position("right")
+//                    .anchor(Anchor.LEFT_CENTER)
+//                    .offsetX(5d)
+//                    .offsetY(5d);
+
+//            Line series3 = cartesian.line(series3Mapping);
+//            series3.name("Tequila");
+//            series3.hovered().markers().enabled(true);
+//            series3.hovered().markers()
+//                    .type(MarkerType.CIRCLE)
+//                    .size(4d);
+//            series3.tooltip()
+//                    .position("right")
+//                    .anchor(Anchor.LEFT_CENTER)
+//                    .offsetX(5d)
+//                    .offsetY(5d);
+
+            cartesian.legend().enabled(true);
+            cartesian.legend().fontSize(13d);
+            cartesian.legend().padding(0d, 0d, 10d, 0d);
 
             anyChartView.setChart(cartesian);
         }
@@ -290,11 +325,11 @@ public class MacroeconomyChart extends AppCompatActivity {
 
     private class CustomDataEntry extends ValueDataEntry {
 
-//        CustomDataEntry(String x, Number value, Number value2, Number value3) {
-//            super(x, value);
-//            setValue("value2", value2);
-//            setValue("value3", value3);
-//        }
+        CustomDataEntry(String x, Number value, Number value2, Number value3) {
+            super(x, value);
+            setValue("value2", value2);
+            setValue("value3", value3);
+        }
 
         CustomDataEntry(String x, Number value) {
             super(x, value);
