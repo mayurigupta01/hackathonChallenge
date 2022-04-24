@@ -18,13 +18,17 @@ public class MacroeconomicsModel {
     public String FDIOutflowDollarBOPChina;
     public String FDIOutflowDollarBOPIndia;
     public String FDIOutflowDollarBOPUSA;
+    public String FDINetDollarBOPChina;
+    public String FDINetDollarBOPIndia;
+    public String FDINetDollarBOPUSA;
 
 
     public MacroeconomicsModel(String year , String PerAnnualGDPGrowthIndia,String PerAnnualGDPGrowthChina,
                                String PerAnnualGDPGrowthUSA,String DollarGDPGrowthIndia,String DollarGDPGrowthChina,
                                String DollarGDPGrowthUSA, String CurrentAccountBalanceChina,String CurrentAccountBalanceIndia,
                                String CurrentAccountBalanceUSA, String FDIPercentGDPChina,String FDIPercentGDPIndia,String FDIPercentGDPUSA,
-                               String FDIOutflowDollarBOPChina,String FDIOutflowDollarBOPIndia,String FDIOutflowDollarBOPUSA) {
+                               String FDIOutflowDollarBOPChina,String FDIOutflowDollarBOPIndia,String FDIOutflowDollarBOPUSA,
+                               String FDINetDollarBOPChina , String FDINetDollarBOPIndia , String FDINetDollarBOPUSA) {
         this.year = year;
         this.PerAnnualGDPGrowthIndia = PerAnnualGDPGrowthIndia;
         this.PerAnnualGDPGrowthChina = PerAnnualGDPGrowthChina;
@@ -41,6 +45,9 @@ public class MacroeconomicsModel {
         this.FDIOutflowDollarBOPChina = FDIOutflowDollarBOPChina;
         this.FDIOutflowDollarBOPIndia = FDIOutflowDollarBOPIndia;
         this.FDIOutflowDollarBOPUSA = FDIOutflowDollarBOPUSA ;
+        this.FDINetDollarBOPChina = FDINetDollarBOPChina;
+        this.FDINetDollarBOPIndia = FDINetDollarBOPIndia;
+        this.FDINetDollarBOPUSA = FDINetDollarBOPUSA;
     }
 
     public String getYear() {
@@ -105,5 +112,17 @@ public class MacroeconomicsModel {
 
     public String getFDIOutflowDollarBOPUSA() {
         return FDIOutflowDollarBOPUSA;
+    }
+
+    public String getFDINetDollarBOPChina() {
+        return FDINetDollarBOPChina;
+    }
+
+    public String getFDINetDollarBOPIndia() {
+        return FDINetDollarBOPIndia;
+    }
+
+    public String getFDINetDollarBOPUSA() {
+        return FDINetDollarBOPUSA;
     }
 }

@@ -15,13 +15,5 @@ public class ReaderController {
          return getMacroData;
     }
 
-    public void showUSAData(){
-
-    }
-
-    public void showChinaData(){
-
-
-    }
 
 }

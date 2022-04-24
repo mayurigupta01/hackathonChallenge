@@ -11,6 +11,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     String[] countries = {"Select a Country", "China", "India", "USA"};
 
     private SQLhelper sqlhelper;
+    List<MacroeconomicsModel> modelList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +47,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             e.printStackTrace();
 
         }
-        List<MacroeconomicsModel> modelList = ReaderController.getMacroEconomicsData(sqlhelper);
-        for(MacroeconomicsModel m : modelList){
-            System.out.println(m.getYear());
-        }
+         modelList = ReaderController.getMacroEconomicsData(sqlhelper);
+
         spinner = (Spinner)findViewById(R.id.countrySpinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this,
                 android.R.layout.simple_spinner_item,countries);
@@ -120,4 +120,92 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
 
+    public  List<Double> showIndiaGDPData(){
+       List<Double> gdpGrowthDataIndia = new ArrayList<>();
+        for(int i = 0 ; i<modelList.size() ; i++){
+            if(modelList.get(i)!=null) {
+                Double value = Double.parseDouble(modelList.get(i).getPerAnnualGDPGrowthIndia());
+                gdpGrowthDataIndia.add(value);
+            }
+      }
+        return gdpGrowthDataIndia;
+    }
+
+    public List<Double> showChinaGDPData(){
+        List<Double> gdpGrowthDataChina = new ArrayList<>();
+        for(int i = 0 ; i<modelList.size() ; i++){
+            if(modelList.get(i)!=null) {
+                Double value = Double.parseDouble(modelList.get(i).getPerAnnualGDPGrowthChina());
+                gdpGrowthDataChina.add(value);
+            }
+        }
+        return gdpGrowthDataChina;
+    }
+
+    public List<Double> showUSAGDPData(){
+        List<Double> gdpGrowthUSA = new ArrayList<>();
+        for(int i = 0 ; i<modelList.size() ; i++){
+            if(modelList.get(i)!=null) {
+                Double value = Double.parseDouble(modelList.get(i).getPerAnnualGDPGrowthUSA());
+                gdpGrowthUSA.add(value);
+            }
+        }
+        return gdpGrowthUSA;
+    }
+
+    public List<Double> FDIInflowIndiaGDPData(){
+        List<Double> FDIInflowIndia = new ArrayList<>();
+        for(int i = 0 ; i<modelList.size() ; i++){
+            if(modelList.get(i)!=null) {
+                Double value = Double.parseDouble(modelList.get(i).getFDIPercentGDPIndia());
+                FDIInflowIndia.add(value);
+            }
+        }
+        return FDIInflowIndia;
+    }
+
+    public List<Double> FDIInflowChinaGDPData(){
+        List<Double> FDIInflowChina = new ArrayList<>();
+        for(int i = 0 ; i<modelList.size() ; i++){
+            if(modelList.get(i)!=null) {
+                Double value = Double.parseDouble(modelList.get(i).getFDIPercentGDPChina());
+                FDIInflowChina.add(value);
+            }
+        }
+        return FDIInflowChina;
+    }
+
+    public List<Double> FDIInflowUSAGDPData(){
+        List<Double> FDIInflowUSA = new ArrayList<>();
+        for(int i = 0 ; i<modelList.size() ; i++){
+            if(modelList.get(i)!=null) {
+                Double value = Double.parseDouble(modelList.get(i).getFDIPercentGDPUSA());
+                FDIInflowUSA.add(value);
+            }
+        }
+        return FDIInflowUSA;
+
+    }
+
+
+    public List<Double> FDIOutflowIndiaGDPData(){
+        List<Double> FDIOutflowIndia = new ArrayList<>();
+        for(int i = 0 ; i<modelList.size() ; i++){
+            if(modelList.get(i)!=null) {
+                Double value = Double.parseDouble(modelList.get(i).getFDIOutflowDollarBOPIndia());
+                FDIOutflowIndia.add(value);
+            }
+        }
+        return FDIOutflowIndia;
+    }
+
+    public List<Double> FDIOutflowChinaGDPData(){
+
+      return new ArrayList<>();
+    }
+
+    public List<Double> FDIOutflowUSAGDPData(){
+
+        return new ArrayList<>();
+    }
 }

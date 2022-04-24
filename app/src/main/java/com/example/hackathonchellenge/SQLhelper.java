@@ -31,6 +31,9 @@ public class SQLhelper extends SQLiteOpenHelper {
     private static final String FDI_OUTFLOW_DOLLAR_BOP_CHINA_COL = "FDIOutflowDollarBOPChina";
     private static final String FDI_OUTFLOW_DOLLAR_BOP_INDIA_COL = "FDIOutflowDollarBOPIndia";
     private static final String FDI_OUTFLOW_DOLLAR_BOP_USA_COL = "FDIOutflowDollarBOPUSA";
+    private static final String FDI_NET_DOLLAR_BOP_CHINA_COL = "FDINetDollarBOPChina";
+    private static final String FDI_NET_DOLLAR_BOP_INDIA_COL = "FDINetDollarBOPIndia";
+    private static final String FDI_NET_DOLLAR_BOP_USA_COL = "FDINetDollarBOPUSA";
 
 
     public SQLhelper(Context context) {
@@ -62,7 +65,10 @@ public class SQLhelper extends SQLiteOpenHelper {
                     + FDI_PERCENT_GDP_USA_COL + " TEXT,"
                     + FDI_OUTFLOW_DOLLAR_BOP_CHINA_COL + " TEXT,"
                     + FDI_OUTFLOW_DOLLAR_BOP_INDIA_COL + " TEXT,"
-                    + FDI_OUTFLOW_DOLLAR_BOP_USA_COL + " TEXT)";
+                    + FDI_OUTFLOW_DOLLAR_BOP_USA_COL + " TEXT,"
+                    + FDI_NET_DOLLAR_BOP_CHINA_COL + " TEXT,"
+                    + FDI_NET_DOLLAR_BOP_INDIA_COL + " TEXT,"
+                    + FDI_NET_DOLLAR_BOP_USA_COL + " TEXT)";
 
             // at last we are calling a exec sql
             // method to execute above sql query
@@ -98,6 +104,9 @@ public class SQLhelper extends SQLiteOpenHelper {
         values.put(FDI_OUTFLOW_DOLLAR_BOP_CHINA_COL, addNullValues(inValues[13]));
         values.put(FDI_OUTFLOW_DOLLAR_BOP_INDIA_COL, addNullValues(inValues[14]));
         values.put(FDI_OUTFLOW_DOLLAR_BOP_USA_COL, addNullValues(inValues[15]));
+        values.put(FDI_NET_DOLLAR_BOP_CHINA_COL, addNullValues(inValues[15]));
+        values.put(FDI_NET_DOLLAR_BOP_INDIA_COL, addNullValues(inValues[15]));
+        values.put(FDI_NET_DOLLAR_BOP_USA_COL, addNullValues(inValues[15]));
         // after adding all values we are passing content values to our table.
         db.insert(TABLE_NAME, null, values);
 
@@ -144,7 +153,10 @@ public class SQLhelper extends SQLiteOpenHelper {
                         cursorCourses.getString(12),
                         cursorCourses.getString(13),
                         cursorCourses.getString(14),
-                        cursorCourses.getString(15)));
+                        cursorCourses.getString(15),
+                        cursorCourses.getString(16),
+                        cursorCourses.getString(17),
+                        cursorCourses.getString(18)));
             }
                 while (cursorCourses.moveToNext()) ;
             }
