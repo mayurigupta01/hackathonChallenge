@@ -2,9 +2,12 @@ package com.example.hackathonchellenge;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import java.util.ArrayList;
 
 public class SQLhelper extends SQLiteOpenHelper {
 
@@ -31,12 +34,11 @@ public class SQLhelper extends SQLiteOpenHelper {
 
 
     public SQLhelper(Context context) {
+
         super(context, DB_NAME, null, DB_VERSION);
     }
-
-
+    
     //create a Database
-
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -81,21 +83,21 @@ public class SQLhelper extends SQLiteOpenHelper {
 
         // on below line we are passing all value along with its key and value pair.
         values.put(YEAR_COL, inValues[0]);
-        values.put(PER_ANNUAL_GDP_INDIA_COL,inValues[1]);
-        values.put(PER_ANNUAL_GDP_CHINA_COL, inValues[2]);
-        values.put(PER_ANNUAL_GDP_USA_COL, inValues[3]);
-        values.put(DOLLAR_ANNUAL_GDP_INDIA_COL, inValues[4]);
-        values.put(DOLLAR_ANNUAL_GDP_CHINA_COL, inValues[5]);
-        values.put(DOLLAR_ANNUAL_GDP_USA_COL, inValues[6]);
-        values.put(CURRENT_ACCOUNT_BALANCE_CHINA_COL, inValues[7]);
-        values.put(CURRENT_ACCOUNT_BALANCE_INDIA_COL, inValues[8]);
-        values.put(CURRENT_ACCOUNT_BALANCE_USA_COL, inValues[9]);
-        values.put(FDI_PERCENT_GDP_CHINA_COL, inValues[10]);
-        values.put(FDI_PERCENT_GDP_INDIA_COL, inValues[11]);
-        values.put(FDI_PERCENT_GDP_USA_COL, inValues[12]);
-        values.put(FDI_OUTFLOW_DOLLAR_BOP_CHINA_COL, inValues[13]);
-        values.put(FDI_OUTFLOW_DOLLAR_BOP_INDIA_COL, inValues[14]);
-        values.put(FDI_OUTFLOW_DOLLAR_BOP_USA_COL, inValues[15]);
+        values.put(PER_ANNUAL_GDP_INDIA_COL, addNullValues(inValues[1]));
+        values.put(PER_ANNUAL_GDP_CHINA_COL, addNullValues(inValues[2]));
+        values.put(PER_ANNUAL_GDP_USA_COL, addNullValues(inValues[3]));
+        values.put(DOLLAR_ANNUAL_GDP_INDIA_COL, addNullValues(inValues[4]));
+        values.put(DOLLAR_ANNUAL_GDP_CHINA_COL, addNullValues(inValues[5]));
+        values.put(DOLLAR_ANNUAL_GDP_USA_COL, addNullValues(inValues[6]));
+        values.put(CURRENT_ACCOUNT_BALANCE_CHINA_COL, addNullValues(inValues[7]));
+        values.put(CURRENT_ACCOUNT_BALANCE_INDIA_COL, addNullValues(inValues[8]));
+        values.put(CURRENT_ACCOUNT_BALANCE_USA_COL, addNullValues(inValues[9]));
+        values.put(FDI_PERCENT_GDP_CHINA_COL, addNullValues(inValues[10]));
+        values.put(FDI_PERCENT_GDP_INDIA_COL, addNullValues(inValues[11]));
+        values.put(FDI_PERCENT_GDP_USA_COL, addNullValues(inValues[12]));
+        values.put(FDI_OUTFLOW_DOLLAR_BOP_CHINA_COL, addNullValues(inValues[13]));
+        values.put(FDI_OUTFLOW_DOLLAR_BOP_INDIA_COL, addNullValues(inValues[14]));
+        values.put(FDI_OUTFLOW_DOLLAR_BOP_USA_COL, addNullValues(inValues[15]));
         // after adding all values we are passing content values to our table.
         db.insert(TABLE_NAME, null, values);
 
@@ -111,11 +113,45 @@ public class SQLhelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    private String addNullvalues(String columnValue){
+    private String addNullValues(String columnValue){
         if (columnValue.isEmpty()) {
             return null;
         }
         return columnValue;
     }
+    public ArrayList<MacroeconomicsModel> readMacroeconomicsData(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursorCourses = db.rawQuery("SELECT * FROM " + TABLE_NAME
+                , null);
+        // on below line we are creating a new array list.
+        ArrayList<MacroeconomicsModel> courseModalArrayList = new ArrayList<>();
+        // moving our cursor to first position.
+        if (cursorCourses.moveToFirst()) {
+            do {
+                courseModalArrayList.add(new MacroeconomicsModel(cursorCourses.getString(0),
+                        cursorCourses.getString(1),
+                        cursorCourses.getString(2),
+                        cursorCourses.getString(3),
+                        cursorCourses.getString(4),
+                        cursorCourses.getString(5),
+                        cursorCourses.getString(6),
+                        cursorCourses.getString(7),
+                        cursorCourses.getString(8),
+                        cursorCourses.getString(9),
+                        cursorCourses.getString(10),
+                        cursorCourses.getString(11),
+                        cursorCourses.getString(12),
+                        cursorCourses.getString(13),
+                        cursorCourses.getString(14),
+                        cursorCourses.getString(15)));
+            }
+                while (cursorCourses.moveToNext()) ;
+            }
+        // at last closing our cursor
+        // and returning our array list.
+        System.out.println(courseModalArrayList);
+        cursorCourses.close();
+        return courseModalArrayList;
 
+    }
 }

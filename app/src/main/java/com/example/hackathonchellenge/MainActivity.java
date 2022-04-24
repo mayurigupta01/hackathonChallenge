@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_main);
         sqlhelper = new SQLhelper(MainActivity.this);
         SQLiteDatabase db = new SQLhelper(this).getWritableDatabase();
-        InputStream csvFile = getResources().openRawResource(R.raw.macroeconomic1);
+        InputStream csvFile = getResources().openRawResource(R.raw.macroeconomic);
         Log.e("LoadData", "Loading Macroeconomics Data into SqlLite DB");
         try {
             readDataFromCSV(csvFile);
@@ -104,6 +104,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     continue;
                 }
                 String[] str = line.split(",", 16);
+                System.out.println(Arrays.toString(str));
                 sqlhelper.addCSVRowtoDB(str);
             }
         }
