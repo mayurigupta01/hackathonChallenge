@@ -133,21 +133,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public List<Double> showChinaGDPData(){
         List<Double> gdpGrowthDataChina = new ArrayList<>();
         for(int i = 0 ; i<modelList.size() ; i++){
-            if(modelList.get(i)!=null) {
-                Double value = Double.parseDouble(modelList.get(i).getPerAnnualGDPGrowthChina());
+                Double value = Double.parseDouble(modelList.get(i).PerAnnualGDPGrowthChina);
                 gdpGrowthDataChina.add(value);
             }
-        }
+
         return gdpGrowthDataChina;
     }
 
     public List<Double> showUSAGDPData(){
         List<Double> gdpGrowthUSA = new ArrayList<>();
         for(int i = 0 ; i<modelList.size() ; i++){
-            if(modelList.get(i)!=null) {
-                Double value = Double.parseDouble(modelList.get(i).getPerAnnualGDPGrowthUSA());
+                Double value = Double.parseDouble(modelList.get(i).PerAnnualGDPGrowthUSA);
                 gdpGrowthUSA.add(value);
-            }
         }
         return gdpGrowthUSA;
     }
@@ -155,10 +152,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public List<Double> FDIInflowIndiaGDPData(){
         List<Double> FDIInflowIndia = new ArrayList<>();
         for(int i = 0 ; i<modelList.size() ; i++){
-            if(modelList.get(i)!=null) {
-                Double value = Double.parseDouble(modelList.get(i).getFDIPercentGDPIndia());
+                Double value = Double.parseDouble(modelList.get(i).FDIPercentGDPIndia);
                 FDIInflowIndia.add(value);
-            }
         }
         return FDIInflowIndia;
     }
@@ -167,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         List<Double> FDIInflowChina = new ArrayList<>();
         for(int i = 0 ; i<modelList.size() ; i++){
             if(modelList.get(i)!=null) {
-                Double value = Double.parseDouble(modelList.get(i).getFDIPercentGDPChina());
+                Double value = Double.parseDouble(modelList.get(i).FDIPercentGDPChina);
                 FDIInflowChina.add(value);
             }
         }
@@ -178,7 +173,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         List<Double> FDIInflowUSA = new ArrayList<>();
         for(int i = 0 ; i<modelList.size() ; i++){
             if(modelList.get(i)!=null) {
-                Double value = Double.parseDouble(modelList.get(i).getFDIPercentGDPUSA());
+                Double value = Double.parseDouble(modelList.get(i).FDIPercentGDPUSA);
                 FDIInflowUSA.add(value);
             }
         }
@@ -191,7 +186,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         List<Double> FDIOutflowIndia = new ArrayList<>();
         for(int i = 0 ; i<modelList.size() ; i++){
             if(modelList.get(i)!=null) {
-                Double value = Double.parseDouble(modelList.get(i).getFDIOutflowDollarBOPIndia());
+                Double value = Double.parseDouble(modelList.get(i).FDIOutflowDollarBOPIndia);
                 FDIOutflowIndia.add(value);
             }
         }
@@ -199,12 +194,24 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     public List<Double> FDIOutflowChinaGDPData(){
-
-      return new ArrayList<>();
+        List<Double> FDIOutflowIndia = new ArrayList<>();
+        for(int i = 0 ; i<modelList.size() ; i++){
+            if(modelList.get(i)!=null) {
+                Double value = Double.parseDouble(modelList.get(i).FDIOutflowDollarBOPChina);
+                FDIOutflowIndia.add(value);
+            }
+        }
+        return FDIOutflowIndia;
     }
 
     public List<Double> FDIOutflowUSAGDPData(){
-
-        return new ArrayList<>();
+        List<Double> FDIOutflowIndia = new ArrayList<>();
+        for(int i = 0 ; i<modelList.size() ; i++){
+            if(modelList.get(i)!=null) {
+                Double value = Double.parseDouble(modelList.get(i).FDIOutflowDollarBOPUSA);
+                FDIOutflowIndia.add(value);
+            }
+        }
+        return FDIOutflowIndia;
     }
 }
