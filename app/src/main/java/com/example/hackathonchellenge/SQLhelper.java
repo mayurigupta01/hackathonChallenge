@@ -53,7 +53,7 @@ public class SQLhelper extends SQLiteOpenHelper {
                     + PER_ANNUAL_GDP_CHINA_COL + " TEXT,"
                     + PER_ANNUAL_GDP_USA_COL + " TEXT,"
                     + DOLLAR_ANNUAL_GDP_INDIA_COL + " TEXT,"
-                    + DOLLAR_ANNUAL_GDP_CHINA_COL + " REAL,"
+                    + DOLLAR_ANNUAL_GDP_CHINA_COL + " TEXT,"
                     + DOLLAR_ANNUAL_GDP_USA_COL + " TEXT,"
                     + CURRENT_ACCOUNT_BALANCE_CHINA_COL + " TEXT,"
                     + CURRENT_ACCOUNT_BALANCE_INDIA_COL + " TEXT,"
@@ -116,7 +116,7 @@ public class SQLhelper extends SQLiteOpenHelper {
 
     private String addNullValues(String columnValue){
         if (columnValue.isEmpty()) {
-            return null;
+            return "0.0";
         }
         return columnValue;
     }

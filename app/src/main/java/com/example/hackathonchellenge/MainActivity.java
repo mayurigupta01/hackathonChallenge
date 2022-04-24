@@ -49,11 +49,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         }
          modelList = ReaderController.getMacroEconomicsData(sqlhelper);
-        for(MacroeconomicsModel m : modelList){
-            System.out.println(m.year);
-            System.out.println(m.getYear());
-
-        }
 
         spinner = (Spinner)findViewById(R.id.countrySpinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this,
@@ -125,17 +120,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
-
     public  List<Double> showIndiaGDPData(){
        List<Double> gdpGrowthDataIndia = new ArrayList<>();
         for(int i = 0 ; i<modelList.size() ; i++){
-            if(modelList.get(i)!=null) {
-                Double value = Double.parseDouble(modelList.get(i).getPerAnnualGDPGrowthIndia());
-                gdpGrowthDataIndia.add(value);
-            }
+            Double value = Double.parseDouble(modelList.get(i).PerAnnualGDPGrowthIndia);
+            gdpGrowthDataIndia.add(value);
       }
         return gdpGrowthDataIndia;
     }
+
 
     public List<Double> showChinaGDPData(){
         List<Double> gdpGrowthDataChina = new ArrayList<>();
