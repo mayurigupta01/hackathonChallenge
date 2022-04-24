@@ -336,4 +336,38 @@ public class SQLhelper extends SQLiteOpenHelper {
         return AgricultureModalArrayList;
 
     }
+
+    public ArrayList<TradeModel> readTradeData(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        System.out.println(db);
+        Cursor cursorCourses = db.rawQuery("SELECT * FROM " + TABLE_NAME_TRADE
+                , null);
+        // on below line we are creating a new array list.
+        ArrayList<TradeModel> tradeModelArrayList = new ArrayList<>();
+        // moving our cursor to first position.
+        if (cursorCourses.moveToFirst()) {
+            do {
+                tradeModelArrayList.add(new TradeModel(cursorCourses.getString(0),
+                        cursorCourses.getString(1),
+                        cursorCourses.getString(2),
+                        cursorCourses.getString(3),
+                        cursorCourses.getString(4),
+                        cursorCourses.getString(5),
+                        cursorCourses.getString(6),
+                        cursorCourses.getString(7),
+                        cursorCourses.getString(8),
+                        cursorCourses.getString(9),
+                        cursorCourses.getString(10),
+                        cursorCourses.getString(11),
+                        cursorCourses.getString(12)));
+            }
+            while (cursorCourses.moveToNext()) ;
+        }
+        // at last closing our cursor
+        // and returning our array list.
+        System.out.println(tradeModelArrayList);
+        cursorCourses.close();
+        return tradeModelArrayList;
+
+    }
 }

@@ -1,5 +1,7 @@
 package com.example.hackathonchellenge;
 
+import com.anychart.core.stock.indicators.TRIX;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,5 +28,18 @@ public class ReaderController {
         }
         return getAgricultureData;
     }
+
+
+    public static List<TradeModel> getTradeData(SQLhelper sqlHelper) {
+        List<TradeModel> getTradeData = null;
+        try{
+            getTradeData = sqlHelper.readTradeData();
+        }
+        catch (Exception e) {
+            //log the exception
+        }
+        return getTradeData;
+    }
+
 
 }
