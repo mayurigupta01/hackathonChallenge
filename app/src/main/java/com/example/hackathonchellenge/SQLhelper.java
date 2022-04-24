@@ -15,6 +15,7 @@ public class SQLhelper extends SQLiteOpenHelper {
     private static final int DB_VERSION = 1;
     private static final String TABLE_NAME = "Macroeconomic";
     private static  final String TABLE_NAME_AGRI = "Agriculture";
+    private static  final String TABLE_NAME_TRADE = "Trade";
     //define columns Macroeconomic table.
     private static final String YEAR_COL = "Year";
     private static final String PER_ANNUAL_GDP_INDIA_COL = "PerAnnualGDPGrowthIndia";
@@ -32,6 +33,8 @@ public class SQLhelper extends SQLiteOpenHelper {
     private static final String FDI_OUTFLOW_DOLLAR_BOP_CHINA_COL = "FDIOutflowDollarBOPChina";
     private static final String FDI_OUTFLOW_DOLLAR_BOP_INDIA_COL = "FDIOutflowDollarBOPIndia";
     private static final String FDI_OUTFLOW_DOLLAR_BOP_USA_COL = "FDIOutflowDollarBOPUSA";
+
+    //defineagriculture table
     private static final String AGRI_YEAR = "Year";
     private static final String PerAFFGDPChina = "PerAFFGDPChina";
     private static final String PerAFFGDPIndia = "PerAFFGDPIndia";
@@ -48,6 +51,21 @@ public class SQLhelper extends SQLiteOpenHelper {
     private static final String FertilizerPerConsumptionChina = "FertilizerPerConsumptionChina";
     private static final String FertilizerPerConsumptionIndia = "FertilizerPerConsumptionIndia";
     private static final String FertilizerPerConsumptionUSA = "FertilizerPerConsumptionUSA";
+
+    //define trade table
+    private static final String TRADE_YEAR = "Year";
+    private static final String reservesChina = "reservesChina";
+    private static final String reservesIndia = "reservesIndia";
+    private static final String reservesUSA = "reservesUSA";
+    private static final String debtChina = "debtChina";
+    private static final String debtIndia = "debtIndia";
+    private static final String debtUSA = "debtUSA";
+    private static final String GNIChina = "GNIChina";
+    private static final String GNIIndia = "GNIIndia";
+    private static final String GNIUSA = "GNIUSA";
+    private static final String CurrentGNIChina = "CurrentGNIChina";
+    private static final String CurrentGNIIndia = "CurrentGNIIndia";
+    private static final String CurrentGNIUSA = "CurrentGNIUSA";
 
 
     public SQLhelper(Context context) {
@@ -101,10 +119,25 @@ public class SQLhelper extends SQLiteOpenHelper {
                 + FertilizerPerConsumptionIndia + " TEXT,"
                 + FertilizerPerConsumptionUSA + " TEXT)";
 
+        String tradeQuery = "CREATE TABLE " + TABLE_NAME_TRADE + " ("
+                + TRADE_YEAR + " TEXT , "
+                + reservesChina + " TEXT,"
+                + reservesIndia + " TEXT,"
+                + reservesUSA + " TEXT,"
+                + debtChina + " TEXT,"
+                + debtIndia + " TEXT,"
+                + debtUSA + " TEXT,"
+                + GNIChina + " TEXT,"
+                + GNIUSA + " TEXT,"
+                + CurrentGNIChina + " TEXT,"
+                + CurrentGNIIndia + " TEXT,"
+                + CurrentGNIUSA + " TEXT)";
         // at last we are calling a exec sql
             // method to execute above sql query
             Log.e("create table Query", query);
             db.execSQL(query);
+            db.execSQL(agriQuery);
+            db.execSQL(tradeQuery);
         }
 
 
@@ -173,7 +206,39 @@ public class SQLhelper extends SQLiteOpenHelper {
         values.put(FertilizerPerConsumptionIndia, addNullValues(inValues[14]));
         values.put(FertilizerPerConsumptionUSA, addNullValues(inValues[15]));
         // after adding all values we are passing content values to our table.
-        db.insert(TABLE_NAME, null, values);
+        db.insert(TABLE_NAME_AGRI, null, values);
+
+        // at last we are closing our
+        // database after adding database.
+        db.close();
+    }
+
+    public void addTradeDataToDB(String[] inValues) {
+
+        // on below line we are creating a variable for
+        // our sqlite database and calling writable method as we update data to db.
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // creating a variable for content values.
+        ContentValues values = new ContentValues();
+
+        // on below line we are passing all value along with its key and value pair.
+        values.put(TRADE_YEAR, inValues[0]);
+        values.put(reservesChina, addNullValues(inValues[1]));
+        values.put(reservesIndia, addNullValues(inValues[2]));
+        values.put(reservesUSA, addNullValues(inValues[3]));
+        values.put(debtChina, addNullValues(inValues[4]));
+        values.put(debtIndia, addNullValues(inValues[5]));
+        values.put(ManufacturingUSA, addNullValues(inValues[6]));
+        values.put(debtUSA, addNullValues(inValues[7]));
+        values.put(GNIChina, addNullValues(inValues[8]));
+        values.put(GNIIndia, addNullValues(inValues[9]));
+        values.put(GNIUSA, addNullValues(inValues[10]));
+        values.put(CurrentGNIChina, addNullValues(inValues[11]));
+        values.put(CurrentGNIIndia, addNullValues(inValues[12]));
+        values.put(CurrentGNIUSA, addNullValues(inValues[13]));
+        // after adding all values we are passing content values to our table.
+        db.insert(TABLE_NAME_TRADE, null, values);
 
         // at last we are closing our
         // database after adding database.
@@ -184,6 +249,8 @@ public class SQLhelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // this method is called to check if the table exists already.
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME_AGRI);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME_TRADE);
         onCreate(db);
     }
 
