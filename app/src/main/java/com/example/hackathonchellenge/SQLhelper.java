@@ -31,6 +31,13 @@ public class SQLhelper extends SQLiteOpenHelper {
     private static final String FDI_OUTFLOW_DOLLAR_BOP_CHINA_COL = "FDIOutflowDollarBOPChina";
     private static final String FDI_OUTFLOW_DOLLAR_BOP_INDIA_COL = "FDIOutflowDollarBOPIndia";
     private static final String FDI_OUTFLOW_DOLLAR_BOP_USA_COL = "FDIOutflowDollarBOPUSA";
+    private static final String AGRICULTURE_FORESTRY_AND_FISHING_INDIA_PERCENT_GROWTH = "AgricultureForestryAndFishingIndia";
+    private static final String AGRICULTURE_FORESTRY_AND_FISHING_CHINA = "AgricultureForestryAndFishingChina";
+    private static final String AGRICULTURE_FORESTRY_AND_FISHING_USA = "AgricultureForestryAndFishingUSA";
+    private static final String MANUFACTURING_CHINA = "ManufacturingChina";
+    private static final String MANUFACTURING_INDIA = "ManufacturingIndia";
+    private static final String MANUFACTURING_USA = "ManufacturingUSA";
+
 
 
 
@@ -65,7 +72,16 @@ public class SQLhelper extends SQLiteOpenHelper {
                     + FDI_OUTFLOW_DOLLAR_BOP_INDIA_COL + " TEXT,"
                     + FDI_OUTFLOW_DOLLAR_BOP_USA_COL + " TEXT)";
 
-            // at last we are calling a exec sql
+            // Agriculture Table
+//
+//            String query = "CREATE TABLE " + TABLE_NAME + " ("
+//                    YEAR_COL + " TEXT,"
+//                    + AGRICULTURE_FORESTRY_AND_FISHING_CHINA + "TEXT,"
+//                            + AGRICULTURE_FORESTRY_AND_FISHING_CHINA + "TEXT,"
+
+
+
+        // at last we are calling a exec sql
             // method to execute above sql query
             Log.e("create table Query", query);
             db.execSQL(query);
