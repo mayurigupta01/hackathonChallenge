@@ -10,5 +10,5 @@
 
 
 ## Sample Demo Video
-<img src="https://github.com/mayurigupta01/hackathonChallenge/blob/master/ezgif-4-5cc8c96900.gif" width="300" height="590">
+<img src="https://github.com/mayurigupta01/hackathonChallenge/blob/master/hackathon.gif" width="300" height="590">
 
